@@ -17,5 +17,5 @@
 
 public/uploads
 application.yml
-database.yml
+#database.yml
 #secrets.yml
