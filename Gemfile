@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 source 'https://rails-assets.org'
 
 gem 'rails', '4.1.6'
+gem 'rails_12factor'
 gem 'unicode'
 #backend
 
