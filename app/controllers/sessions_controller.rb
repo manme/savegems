@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
     if user
       redirect_to :gem_notes
     else
-      redirect_to :root
+      render 'home/index'
     end
   end
 
