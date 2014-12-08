@@ -3,15 +3,14 @@ class SessionsController < ApplicationController
   def create
     Rails.logger << '!!!'
 
-    redirect_to 'home/index'
-    # auth_hash = request.env['omniauth.auth']
-    # user = User.find_or_create_by(uid: auth_hash['uid'], provider: auth_hash['provider'])
-    #
-    # if user
-    #   redirect_to
-    # else
-    #   redirect_to
-    # end
+    auth_hash = request.env['omniauth.auth']
+    user = User.find_or_create_by(uid: auth_hash['uid'], provider: auth_hash['provider'])
+
+    if user
+      redirect_to :gem_notes_path
+    else
+      redirect_to :root_path
+    end
   end
 
   def failure

@@ -29,16 +29,16 @@ module Concerns
       redirect_to(session[:return_to_url] || url, flash: flash_hash)
       session[:return_to_url] = nil
     end
-
-    def authenticate_user
-      unless signed_in?
-        if request.xhr?
-          render json: { status: :error, code: 401, message: :unauthenticated }
-        else
-          session[:return_to_url] = request.url if request.get?
-          redirect_to sign_in_path(invite: params[:invite])
-        end
-      end
-    end
+    #
+    # def authenticate_user
+    #   unless signed_in?
+    #     if request.xhr?
+    #       render json: { status: :error, code: 401, message: :unauthenticated }
+    #     else
+    #       session[:return_to_url] = request.url if request.get?
+    #       redirect_to sign_in_path(invite: params[:invite])
+    #     end
+    #   end
+    # end
   end
 end
