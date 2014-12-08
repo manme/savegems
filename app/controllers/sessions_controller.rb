@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
   def create
 
     @auth_hash = request.env['omniauth.auth']
-    Rails.logger << auth_hash
+    logger.info auth_hash
     user = User.find_or_create_by(uid: @auth_hash['uid'], provider: @auth_hash['provider'])
 
     if user
