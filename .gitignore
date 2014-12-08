@@ -18,4 +18,4 @@
 public/uploads
 application.yml
 database.yml
-secrets.yml
+#secrets.yml
