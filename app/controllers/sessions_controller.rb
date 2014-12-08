@@ -1,15 +1,17 @@
 class SessionsController < ApplicationController
   # before_action :authenticate, only: :destroy
-
   def create
-    auth_hash = request.env['omniauth.auth']
-    user = User.find_or_create_by(uid: auth_hash['uid'], provider: auth_hash['provider'])
+    Rails.logger << '!!!'
 
-    if user
-      redirect_to :gem_notes
-    else
-      redirect_to :root
-    end
+    redirect_to 'home/index'
+    # auth_hash = request.env['omniauth.auth']
+    # user = User.find_or_create_by(uid: auth_hash['uid'], provider: auth_hash['provider'])
+    #
+    # if user
+    #   redirect_to
+    # else
+    #   redirect_to
+    # end
   end
 
   def failure
