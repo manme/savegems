@@ -36,7 +36,7 @@ module Concerns
           render json: { status: :error, code: 401, message: :unauthenticated }
         else
           session[:return_to_url] = request.url if request.get?
-          redirect_to :root_path
+          redirect_to :root
         end
       end
     end

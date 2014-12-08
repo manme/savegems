@@ -1,15 +1,15 @@
 class SessionsController < ApplicationController
+  skip_before_action :authenticate, only: [:create, :failure]
   # before_action :authenticate, only: :destroy
   def create
-    Rails.logger << '!!!'
 
     auth_hash = request.env['omniauth.auth']
     user = User.find_or_create_by(uid: auth_hash['uid'], provider: auth_hash['provider'])
 
     if user
-      redirect_to :gem_notes_path
+      redirect_to :gem_notes
     else
-      redirect_to :root_path
+      redirect_to :root
     end
   end
 
