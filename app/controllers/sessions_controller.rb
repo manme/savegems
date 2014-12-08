@@ -3,9 +3,9 @@ class SessionsController < ApplicationController
   # before_action :authenticate, only: :destroy
   def create
 
-    auth_hash = request.env['omniauth.auth']
+    @auth_hash = request.env['omniauth.auth']
     Rails.logger << auth_hash
-    user = User.find_or_create_by(uid: auth_hash['uid'], provider: auth_hash['provider'])
+    user = User.find_or_create_by(uid: @auth_hash['uid'], provider: @auth_hash['provider'])
 
     if user
       redirect_to :gem_notes

@@ -1,7 +1,7 @@
 - content_for :navbar do
   - if signed_in?
     = render 'layouts/navbar'
-
+= @auth_hash
 .row
   .col-md-4
     h1 =t('title')
