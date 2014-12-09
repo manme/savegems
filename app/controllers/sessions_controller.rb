@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
         email: auth_hash.info['email'],
         image: auth_hash.info['image'],
         access_token: auth_hash.credentials['token'])
-
+    sign_in user
     if user
       redirect_to :gem_notes
     else
@@ -18,18 +18,13 @@ class SessionsController < ApplicationController
     end
   end
 
+  def destroy
+    if signed_in?
+      sign_out
+    end
+    redirect_to :root
+  end
+
   def failure
-  end
-
-  private
-
-  def set_provider
-    @provider = params[:provider]
-  end
-
-  def user_sign_in params
-    sign_in User.sign_in(@provider, params)
-    @result = params
-    render 'sessions/vk_success'
   end
 end

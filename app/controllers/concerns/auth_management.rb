@@ -1,7 +1,7 @@
 module Concerns
   module AuthManagement
     def sign_in(user)
-      session[:user_hash] = user.hash
+      session[:user_hash] = user.utoken
     end
 
     def sign_out
