@@ -7,7 +7,7 @@
 #  provider     :string(255)
 #  access_token :string(255)
 #  email        :string(255)
-#  hash         :string(255)
+#  utoken       :string(255)
 #  created_at   :datetime
 #  updated_at   :datetime
 #
