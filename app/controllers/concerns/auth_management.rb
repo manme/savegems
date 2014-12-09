@@ -9,7 +9,7 @@ module Concerns
     end
 
     def current_user
-      @_current_user ||= User.find_by(hash: session[:user_hash]) if session[:user_hash]
+      @_current_user ||= User.find_by(utoken: session[:user_hash]) if session[:user_hash]
     end
 
     def signed_in?
