@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141209181853) do
+ActiveRecord::Schema.define(version: 20141209190848) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,9 @@ ActiveRecord::Schema.define(version: 20141209181853) do
     t.string   "utoken"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "name"
+    t.text     "nickname"
+    t.text     "image"
   end
 
   add_index "users", ["utoken"], name: "index_users_on_utoken", unique: true, using: :btree
