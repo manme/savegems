@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # post 'auth/:provider/callback' => 'sessions#create'
   get 'auth/logout' => 'sessions#destroy', as: :auth_logout
 
-  resources :gem_notes
+  resources :gem_notes, path: :gems
 
   root 'home#index'
 end

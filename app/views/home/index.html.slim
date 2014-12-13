@@ -1,30 +1,11 @@
 - content_for :navbar do
   - if signed_in?
     = render 'layouts/navbar'
-.row
-  .col-md-4
-    h1 =t('title')
 
 .row
   .col-md-8
-    .panel.panel-primary
-      .panel-heading
-        h3.panel-title =t('home.panel_login.title')
-      .panel-body
-        - if signed_in?
-          = link_to t('home.gem_notes_link')
-        - else
-          = link_to t('home.github_auth'), 'auth/github'
-    .panel.panel-primary
-      .panel-heading
-        h3.panel-title About
-      .panel-body
-        | todo: add descriptions
+    == render 'share/auth'
+    == render 'share/about'
 
   .col-md-4
-    .panel.panel-primary
-      .panel-heading
-        h3.panel-title Feedback
-      .panel-body
-        | Share via social:
-        | Send feedback now!
+    == render 'share/feedback'

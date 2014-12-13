@@ -1,3 +1,40 @@
-// Place all the styles related to the gem controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.add-gem {
+  .form-gem {
+    .form-group {
+      width: 100%;
+    }
+
+    input {
+      width: 100%;
+    }
+
+    .description {
+      width: 100%;
+    }
+
+    .main-values {
+
+      margin-left: 50px;
+
+      div {
+        margin-bottom: 5px;
+      }
+
+    }
+
+    a.more {
+      position: absolute;
+      display: block;
+      position: absolute;
+      width: 34px;
+      height: 34px;
+      margin-left: 5px;
+      span {
+        font-size: 34px;
+      }
+    }
+
+
+  }
+}

@@ -19,4 +19,18 @@
 #
 
 class GemNote < ActiveRecord::Base
+
+  def active
+    state == :actived
+  end
+
+  state_machine :state, initial: :active do
+    event :disactive do
+      transition actived: :disactived
+    end
+
+    event :active do
+      transition disactived: :actived
+    end
+  end
 end

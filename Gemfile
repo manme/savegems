@@ -22,6 +22,7 @@ gem 'omniauth-github'
 #front
 gem 'slim-rails'
 gem 'bourbon'
+gem 'simple_form'
 # gem 'bootsy'
 
 gem 'bootstrap-sass'

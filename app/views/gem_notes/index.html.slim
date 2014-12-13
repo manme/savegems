@@ -1,4 +1,6 @@
 - content_for :navbar do
   = render 'layouts/navbar'
 
-= render @gems
+= render 'form'
+
+= render @facade.gem_notes
