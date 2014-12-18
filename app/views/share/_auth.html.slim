@@ -1,0 +1,8 @@
+.panel.panel-primary
+  .panel-heading
+    h3.panel-title =t('home.panel_login.title')
+  .panel-body
+    - if signed_in?
+      = link_to t('home.gem_notes_link')
+    - else
+      = link_to t('home.github_auth'), 'auth/github'

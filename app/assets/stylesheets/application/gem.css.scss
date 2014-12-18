@@ -23,7 +23,20 @@
 
     }
 
-    a.more {
+    .option-values {
+//      display: none;
+      opacity: 0;
+      height: 1px;
+      &.show {
+//        display: block;
+        height: 200px;
+        opacity: 1;
+      }
+
+      transition: all linear 0.8s;
+    }
+
+    a.more-btn {
       position: absolute;
       display: block;
       position: absolute;
@@ -32,8 +45,23 @@
       margin-left: 5px;
       span {
         font-size: 34px;
+        line-height: 30px;
+        color: #444444;
+
+        &:hover {
+          color: #666666;
+        }
+        transition: all linear 0.2s;
+      }
+
+      text-decoration: none;
+
+      &.more-btn-collapse {
+        display: none;
       }
     }
+
+
 
 
   }

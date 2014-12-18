@@ -23,6 +23,8 @@ gem 'omniauth-github'
 gem 'slim-rails'
 gem 'bourbon'
 gem 'simple_form'
+gem 'evil-front-rails'
+gem 'evil-blocks-rails'
 # gem 'bootsy'
 
 gem 'bootstrap-sass'
