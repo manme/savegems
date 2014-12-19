@@ -23,7 +23,6 @@ class GemNotesController < ApplicationController
   private
 
   def gem_note_params
-    # TODO: add pure params like gemfile
     params.require(:gem_note).permit(:name, :version, :source, :repository, :branch)
   end
 

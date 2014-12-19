@@ -1,5 +1,12 @@
 
+.hide {
+  display: none;
+}
+
 .add-gem {
+  hr {
+    margin: 10px;
+  }
   .form-gem {
     .form-group {
       width: 100%;
@@ -14,22 +21,22 @@
     }
 
     .main-values {
-
-      margin-left: 50px;
-
-      div {
+      .form-group {
         margin-bottom: 5px;
       }
-
+      .main-values-col {
+        padding: 0;
+      }
     }
 
-    .option-values {
-//      display: none;
+    .option-values
+    {
       opacity: 0;
       height: 1px;
+      overflow: hidden;
+
       &.show {
-//        display: block;
-        height: 200px;
+        height: 100%;
         opacity: 1;
       }
 
@@ -37,12 +44,14 @@
     }
 
     a.more-btn {
-      position: absolute;
+      margin-top: 20px;
       display: block;
-      position: absolute;
       width: 34px;
       height: 34px;
-      margin-left: 5px;
+      position: relative;
+      left: 50%;
+      margin-left: -17px;
+
       span {
         font-size: 34px;
         line-height: 30px;
@@ -55,14 +64,16 @@
       }
 
       text-decoration: none;
-
-      &.more-btn-collapse {
-        display: none;
-      }
     }
 
+    .submit-col {
+      margin-bottom: 20px;
 
-
+      .btn {
+        padding-left: 6px;
+        padding-right: 6px;
+      }
+    }
 
   }
 }

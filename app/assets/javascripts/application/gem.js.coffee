@@ -11,12 +11,12 @@ $ ->
 
       @optionsExpand.click (e) =>
         e.preventDefault()
-        @optionsExpand.hide()
-        @optionsCollapse.show()
+        @optionsExpand.addClass('hide')
+        @optionsCollapse.removeClass('hide')
         @showOptions(true)
 
       @optionsCollapse.click (e) =>
         e.preventDefault()
-        @optionsExpand.show()
-        @optionsCollapse.hide()
+        @optionsExpand.removeClass('hide')
+        @optionsCollapse.addClass('hide')
         @showOptions(false)
