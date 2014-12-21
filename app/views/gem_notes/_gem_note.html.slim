@@ -1,0 +1,16 @@
+
+.row.col-md-12.gem-item@gemItem
+  .row
+    .col-md-4.name
+      a.status class="#{gem_active_class(gem_note)}" href="#"
+        span.glyphicon.glyphicon-chevron-down
+      = gem_note.name
+    .col-md-2 = gem_note.version
+    .col-md-4 = gem_note.description
+    .col-md-2.more
+      = link_to '', gem_note_path(gem_note), class: 'gem-destroy glyphicon glyphicon-trash icon-anim', method: :delete, data: {confirm: "Delete item?"}
+      a.gem-link.glyphicon.glyphicon-link.icon-anim href="#"
+
+      = check_box_tag('gem_sected', gem_note.id, false, class: 'gem-select')
+
+

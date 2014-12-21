@@ -9,12 +9,15 @@
           .row
             .col-md-8 =f.input :description, label: false, placeholder: 'Description', \
               input_html: { class: 'description' }
-            .col-md-3 =f.input :active, as: :boolean, boolean_style: :inline
-            .col-md-1
+            .col-md-2
+              =f.input :active, as: :boolean, input_html: {checked: true}, boolean_style: :inline
+            .col-md-2.more
               a.more-btn.more-btn-expand@optionsExpand href="#"
-                span.glyphicon.glyphicon-collapse-down
+                button.btn.btn-info Options
+                /span.glyphicon.glyphicon-collapse-down
               a.more-btn.more-btn-collapse.hide@optionsCollapse href="#"
-                span.glyphicon.glyphicon-collapse-up
+                button.btn.btn-info Hide
+                /span.glyphicon.glyphicon-collapse-up
         .row.option-values@optionValues
           .row
             .col-md-4
@@ -33,9 +36,18 @@
           .row
             .col-md-4
               =f.input :path, label: false, placeholder: 'Path'
+            .col-md-4
+              =f.input :branch, label: false, placeholder: 'Path'
+            .col-md-4
+              =f.input :tag, label: false, placeholder: 'Path'
+          .row
+            .col-md-4
+              =f.input :ref, label: false, placeholder: 'Path'
+            .col-md-4
+              =f.input :submodules, label: false, placeholder: 'Path'
 
-        hr
-      .col-md-1.submit-col@submitValues =f.button :submit
+      .col-md-1.submit-col@submitValues
+        = submit_tag 'Add', class: 'btn btn-danger'
 
 
 

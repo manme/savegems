@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 source 'https://rails-assets.org'
 
+ruby '2.1.3'
+
 gem 'rails', '4.1.6'
 gem 'rails_12factor'
 gem 'unicode'
@@ -40,6 +42,7 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 
 gem 'rails-assets-normalize-css'
+gem 'rails-assets-bootstrap-sweetalert'
 
 group :development, :test do
   gem 'rubocop'

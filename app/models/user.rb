@@ -10,6 +10,9 @@
 #  utoken       :string(255)
 #  created_at   :datetime
 #  updated_at   :datetime
+#  name         :text
+#  nickname     :text
+#  image        :text
 #
 
 class User < ActiveRecord::Base

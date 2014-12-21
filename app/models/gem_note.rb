@@ -16,12 +16,22 @@
 #  state       :string(255)
 #  created_at  :datetime
 #  updated_at  :datetime
+#  branch      :string(255)
+#  tag         :string(255)
+#  ref         :string(255)
+#  submodules  :string(255)
 #
 
 class GemNote < ActiveRecord::Base
 
-  def active
-    state == :actived
+  validates :name, presence: true, allow_blank: false
+
+  def active=(val)
+    if val.to_i.zero?
+      self.state = :disactived
+    else
+      self.state = :actived
+    end
   end
 
   state_machine :state, initial: :active do

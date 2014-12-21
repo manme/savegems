@@ -1,0 +1,10 @@
+- if object.errors.any?
+  .row.col-md-12.error-message
+    .alert-danger
+      .text-box
+        | The form contains
+        = pluralize(object.errors.count, "error")
+        | .
+        ul
+          - object.errors.full_messages.each do |msg|
+            li= msg

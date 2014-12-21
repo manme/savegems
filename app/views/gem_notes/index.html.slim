@@ -1,6 +1,21 @@
 - content_for :navbar do
   = render 'layouts/navbar'
 
+= render 'layouts/error_messages', object: @facade.gem_note
 = render 'form'
 
-= render @facade.gem_notes
+- if @facade.gem_notes.any?
+  .row.col-md-12.gem-list-header
+    .row
+      .col-md-4.header-col Name
+      .col-md-2.header-col Version
+      .col-md-4.header-col Description
+      .col-md-2.header-col More
+- else
+  .row.col-md-12
+    .row.col-md-12.gem-list-empty Gem list empty
+
+.row.col-md-12.gem-list@@gemList
+  = render @facade.gem_notes
+.row.col-md-12
+  hr

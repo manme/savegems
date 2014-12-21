@@ -192,6 +192,7 @@ GEM
       railties (= 4.1.6)
       sprockets-rails (~> 2.0)
     rails-assets-Bootflat (2.0.4)
+    rails-assets-bootstrap-sweetalert (0.4.3)
     rails-assets-normalize-css (3.0.2)
     rails-sass-images (0.5)
       dimensions (> 0)
@@ -317,6 +318,7 @@ DEPENDENCIES
   puma
   rails (= 4.1.6)
   rails-assets-Bootflat
+  rails-assets-bootstrap-sweetalert
   rails-assets-normalize-css
   rails_12factor
   rspec-rails

@@ -16,6 +16,10 @@
 #  state       :string(255)
 #  created_at  :datetime
 #  updated_at  :datetime
+#  branch      :string(255)
+#  tag         :string(255)
+#  ref         :string(255)
+#  submodules  :string(255)
 #
 
 # Read about factories at https://github.com/thoughtbot/factory_girl
