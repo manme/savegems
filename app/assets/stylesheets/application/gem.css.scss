@@ -6,7 +6,7 @@
 .icon-anim {
   color: #676a6c;
   &:hover {
-    color: #2d2e2f;
+    color: #2d2e2f !important;
   }
 
   &:focus {
@@ -14,11 +14,25 @@
   }
 
   &:active {
-    color: #e00000;
+    color: #e00000 !important;
     transition: color linear 0.05s;
   }
+
+  &.active {
+    color: #e00000 !important;
+    transition: color linear 0.05s;
+  }
+
   transition: color linear 0.15s;
   user-focus: none;
+}
+
+.btn-default {
+  &:hover {
+    background: #f6f6f6;
+    color: #000000;
+  }
+
 }
 
 .error-message {
@@ -43,6 +57,12 @@
 
 .add-gem {
 
+  .bg {
+    padding: 0;
+    margin: 0;
+    background: inline('form_bg_2.png') #15B0DA;
+  }
+
   input[type="text"], textarea {
     border: 1px solid #000000;
   }
@@ -50,6 +70,33 @@
   hr {
     margin: 10px;
   }
+
+  .title {
+    color: #FFFFFF;
+    font-size: 16px;
+    padding-left: 20px;
+    line-height: 35px;
+  }
+
+  .form-title {
+    margin-top: 10px;
+  }
+
+
+  .parser {
+    padding-top: 10px;
+
+
+    .field-container {
+      padding-right: 0;
+    }
+
+    .btn-info {
+      background: #DCFFA9;
+      color: #000000;
+    }
+  }
+
   .form-gem {
     .form-group {
       width: 100%;
@@ -65,8 +112,7 @@
 
     .main-values {
 
-      padding-top: 20px;
-      background: #D3E7FE;
+      padding-top: 30px;
 
       .form-group {
         margin-bottom: 5px;
@@ -81,6 +127,7 @@
       opacity: 0;
       height: 1px;
       overflow: hidden;
+      padding-bottom: 10px;
 
       &.show {
         height: 100%;
@@ -94,7 +141,7 @@
     }
 
     a.more-btn {
-      margin: 20px 0;
+      margin: 15px 0;
       display: block;
       height: 34px;
       position: relative;
@@ -164,6 +211,91 @@
     padding: 7px 0;
     height: 40px;
 
+    .mode-text {
+      background: none;
+      outline: none;
+      border: none;
+      cursor: text;
+      vertical-align: top;
+      height: 22px;
+      padding: 0 5px;
+      width: 100%;
+
+      &.active {
+        background: #ffffff;
+        outline-color: #15B0DA;
+        border: 1px solid #000000;
+      }
+    }
+
+    .param-name {
+      width: 260px;
+    }
+
+    .gem-item-export {
+      position: absolute;
+      z-index:100;
+      left: 75px;
+      width: 0px;
+      padding: 0;
+      opacity: 0;
+
+      .gem-field {
+        padding: 0 0;
+        transition: padding linear 0.25s;
+        height: 25px;
+      }
+
+      &.active {
+        width: 700px;
+        opacity: 1;
+        .gem-field {
+          padding: 0 10px;
+        }
+      }
+
+      transition: opacity linear 0.25s;
+
+      transition: width linear 0.25s;
+    }
+
+    .gem-item-link {
+      position: absolute;
+      z-index:100;
+      right: 50px;
+      width: 0px;
+      padding: 0;
+      opacity: 0;
+
+      .gem-field {
+        padding: 0 0;
+        transition: padding linear 0.25s;
+        height: 25px;
+      }
+
+      &.active {
+        width: 250px;
+        opacity: 1;
+        .gem-field {
+          padding: 0 10px;
+        }
+      }
+
+      transition: opacity linear 0.25s;
+
+      transition: width linear 0.25s;
+    }
+
+    #gem-item-export {
+      height: 25px;
+      width: 100%;
+    }
+
+    .gem-item-line {
+      height: 24px;
+      margin-top: 3px;
+    }
+
     &:nth-child(even)
     {
       background: #f8f8f8;
@@ -186,10 +318,15 @@
         user-select: none;
       }
     }
+
+    .full-gem-info {
+      padding: 0;
+      margin: 0;
+    }
   }
 
   .status {
-    width: 30px;
+    width: 20px;
     height: 20px;
     border-radius: 2px;
     display: inline-block;
@@ -201,16 +338,16 @@
     }
 
     &.actived {
-      span {
-        color: #04e30a;
-      }
+      color: #04e30a;
     }
 
     &.disactived {
-      span {
-        color: rgba(106, 70, 32, 0.50);
-      }
+      color: rgba(106, 70, 32, 0.50);
     }
+  }
+
+  .export {
+    padding: 0 20px;
   }
 
   a.gem-destroy {
@@ -224,5 +361,16 @@
   .gem-select {
     position: absolute;
     right: 10px;
+  }
+
+  .full-gem-info {
+    opacity: 0;
+    height: 1px;
+
+    &.active {
+      display: block;
+      opacity: 1;
+      height: 100%;
+    }
   }
 }

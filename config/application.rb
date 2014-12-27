@@ -21,7 +21,7 @@ module GemService
     # config.i18n.default_locale = :de
     # config.i18n.default_locale = :en
     config.i18n.default_locale = :en
-    #
+
 
   end
 end

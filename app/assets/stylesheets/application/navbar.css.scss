@@ -1,0 +1,16 @@
+.navbar-custom {
+  background: inline('form_bg_2.png') #15B0DA;
+
+  .navbar-brand {
+    color: rgba(255,255,255,0.9);
+
+    &:hover {
+      color: rgba(255,255,255,1);
+    }
+
+    transition: color linear 0.15s;
+  }
+
+
+
+}

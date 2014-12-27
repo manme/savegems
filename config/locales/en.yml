@@ -18,3 +18,18 @@ en:
       gem_note:
         create: "Add"
         update: "Update"
+  gem:
+    name: "Name"
+    version: "Version"
+    description: "Description"
+    require: "Require"
+    groups: "Groups"
+    platforms: "Platforms"
+    source: "Source"
+    git: "Git"
+    github: "Github"
+    path: "Path"
+    branch: "Branch"
+    tag: "Tag"
+    ref: "Ref"
+    submodules: "Submodules"
