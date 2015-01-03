@@ -16,6 +16,7 @@ gem 'active_model_serializers'
 gem 'figaro'
 gem 'puma'
 gem 'bcrypt'
+gem 'hashids'
 
 #auth
 gem 'omniauth'

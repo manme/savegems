@@ -1,44 +1,25 @@
 
 .row.col-md-12.gem-item@@gemItem
-  .row.col-md-12.gem-item-export@exportGemField
-    = text_field_tag 'gem-item-export', '', class: 'string form-control gem-field', placeholder: "gem 'rails', '4.2.0'"
   .row.col-md-12.gem-item-link@linkGemField
-    = text_field_tag 'gem-item-link', '', class: 'string form-control gem-field', placeholder: ""
-
+    = text_field_tag 'gem-item-link', gem_note.hashid, class: 'string form-control gem-field', placeholder: ""
   .gem-item-line
-    .row
-      .col-md-4.name
+    .row.main-row@main
+      .col-md-1
         a.status@expandGemIcon class="#{gem_active_class(gem_note)} icon-anim" href="#"
           span.glyphicon.glyphicon-eye-open
-        a.export@exportGemIcon class='icon-anim' href="#"
-          span.glyphicon.glyphicon-export
-        = text_field_tag :name, gem_note.name, class: 'mode-text param-name', placeholder: t('gem.name'), disabled: 'disabled', data: { role: 'editGemFields' }
-      .col-md-2 = text_field_tag :version, gem_note.version, class: 'mode-text', placeholder: t('gem.version'), disabled: 'disabled', data: { role: 'editGemFields' }
-      .col-md-4 = text_area_tag :description, gem_note.description, class: 'mode-text', placeholder: t('gem.description'), disabled: 'disabled', data: { role: 'editGemFields' }
-      .col-md-2.more
-        = link_to '', gem_note_path(gem_note), class: 'gem-destroy glyphicon glyphicon-trash icon-anim', method: :delete, data: {confirm: "Delete item?"}
         a.gem-edit.glyphicon.glyphicon-pencil.icon-anim@editGemIcon href=edit_gem_note_path(gem_note)
+      .col-md-8
+        = text_field_tag :original, gem_note.original, class: 'mode-text param-name form-control', placeholder: t('gem.name'), disabled: 'disabled', data: { role: 'editGemFields' }
+      .col-md-3.more
+        = link_to '', gem_note_path(gem_note), class: 'gem-destroy glyphicon glyphicon-trash icon-anim', method: :delete, data: {confirm: "Delete item?"}
+
         a.gem-link.glyphicon.glyphicon-link.icon-anim@linkGemIcon href="#"
         = check_box_tag('gem_sected', gem_note.id, false, class: 'gem-select')
+    .details@expandGemInfo
+      .row
+        .col-md-1.col-md-offset-0
+        .col-md-8
+          = text_area_tag :description, gem_note.description, class: 'mode-text form-control', disabled: 'disabled', data: {role: 'editGemFields'}
 
-    .row.col-md-12.full-gem-info@expandGemInfo
-      .row
-        .col-md-4 = text_field_tag :require, gem_note.require, class: 'mode-text', placeholder: t('gem.require'), disabled: 'disabled', data: { role: 'editGemFields' }
-        .col-md-4 = text_field_tag :groups, gem_note.groups, class: 'mode-text', placeholder: t('gem.groups'), disabled: 'disabled', data: { role: 'editGemFields' }
-        .col-md-4 = text_field_tag :platforms, gem_note.platforms, class: 'mode-text', placeholder: t('gem.platforms'), disabled: 'disabled', data: { role: 'editGemFields' }
-      .row
-        .col-md-4 = text_field_tag :source, gem_note.source, class: 'mode-text', placeholder: t('gem.source'), disabled: 'disabled', data: { role: 'editGemFields' }
-        .col-md-4 = text_field_tag :git, gem_note.git, class: 'mode-text', placeholder: t('gem.git'), disabled: 'disabled', data: { role: 'editGemFields' }
-        .col-md-4 = text_field_tag :github, gem_note.github, class: 'mode-text', placeholder: t('gem.github'), disabled: 'disabled', data: { role: 'editGemFields' }
-      .row
-        .col-md-4 = text_field_tag :path, gem_note.path, class: 'mode-text', placeholder: t('gem.path'), disabled: 'disabled', data: { role: 'editGemFields' }
-        .col-md-4 = text_field_tag :branch, gem_note.branch, class: 'mode-text', placeholder: t('gem.branch'), disabled: 'disabled', data: { role: 'editGemFields' }
-        .col-md-4 = text_field_tag :tag, gem_note.tag, class: 'mode-text', placeholder: t('gem.tag'), disabled: 'disabled', data: { role: 'editGemFields' }
-      .row
-        .col-md-4 = text_field_tag :ref, gem_note.ref, class: 'mode-text', placeholder: t('gem.ref'), disabled: 'disabled', data: { role: 'editGemFields' }
-        .col-md-4 = text_field_tag :submodules, gem_note.submodules, class: 'mode-text', placeholder: t('gem.submodules'), disabled: 'disabled', data: { role: 'editGemFields' }
-        .col-md-4
-          label.toggle
-            = check_box_tag :active, gem_note.active
-            span.handle
+
 

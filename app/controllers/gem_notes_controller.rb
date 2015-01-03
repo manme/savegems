@@ -7,7 +7,6 @@ class GemNotesController < ApplicationController
   end
 
   def create
-    pp gem_note_params
     if @facade.create(gem_note_params)
       respond_to do |format|
         format.html { redirect_to :gem_notes }
@@ -34,22 +33,18 @@ class GemNotesController < ApplicationController
     end
   end
 
+  def show
+    if params[:id].present?
+
+    else
+
+    end
+  end
+
   private
 
   def gem_note_params
-    params.require(:gem_note).permit(:name,
-      :version,
-      :require,
-      :groups,
-      :platforms,
-      :source,
-      :git,
-      :github,
-      :path,
-      :branch,
-      :tag,
-      :ref,
-      :submodules,
+    params.require(:gem_note).permit(:original,
       :description,
       :active)
   end

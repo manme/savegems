@@ -7,11 +7,12 @@ $ ->
         e.preventDefault()
         @expandGemIcon.toggleClass('active')
         @expandGemInfo.toggleClass('active')
+        @block.toggleClass('active')
 
-      @exportGemIcon.click (e) =>
-        e.preventDefault()
-        @exportGemIcon.toggleClass('active')
-        @exportGemField.toggleClass('active')
+#      @exportGemIcon.click (e) =>
+#        e.preventDefault()
+#        @exportGemIcon.toggleClass('active')
+#        @exportGemField.toggleClass('active')
 
       @linkGemIcon.click (e) =>
         e.preventDefault()

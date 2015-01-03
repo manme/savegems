@@ -11,6 +11,11 @@ class GemNotesFacade
     @gem_note.save
   end
 
+  def show hid
+    @gem_note = GemNote.find_by hashid: hid
+
+  end
+
   def all
     @gem_notes = GemNote.all
   end

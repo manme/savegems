@@ -112,7 +112,8 @@
 
     .main-values {
 
-      padding-top: 30px;
+      padding-top: 15px;
+      padding-bottom: 10px;
 
       .form-group {
         margin-bottom: 5px;
@@ -124,7 +125,7 @@
 
       .active-form {
 
-        margin-top: 15px;
+        padding-top: 5px;
 
         .title {
           padding: 0;
@@ -210,8 +211,8 @@
       text-decoration: none;
     }
 
-    .submit-col {
-      margin-bottom: 20px;
+    .submit-btn {
+      margin-top: 5px;
 
       .btn {
         padding-left: 6px;

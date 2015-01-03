@@ -33,3 +33,4 @@ en:
     tag: "Tag"
     ref: "Ref"
     submodules: "Submodules"
+    original: "gem 'rails', '4.2.0'"
