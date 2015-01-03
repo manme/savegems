@@ -36,9 +36,9 @@ module Concerns
           render json: { status: :error, code: 401, message: :unauthenticated }
         else
           # pp Rails.env
-          # if Rails.env == "development"
-          #   sign_in User.last
-          # end
+          if Rails.env == "development"
+            sign_in User.last
+          end
           session[:return_to_url] = request.url if request.get?
           redirect_to :root
         end

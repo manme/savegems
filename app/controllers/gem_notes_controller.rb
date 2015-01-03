@@ -7,6 +7,7 @@ class GemNotesController < ApplicationController
   end
 
   def create
+    pp gem_note_params
     if @facade.create(gem_note_params)
       respond_to do |format|
         format.html { redirect_to :gem_notes }

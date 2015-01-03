@@ -1,6 +1,6 @@
 .row.col-md-12.add-gem@@addGem
   .row.col-md-14.bg
-    .row.parser
+    .row.parser style="display:none;"
       .col-md-1.title easily:
       .col-md-8.field-container
         = text_field_tag 'gem_line', '', class: 'string form-control', placeholder: "gem 'rails', '4.2.0'"
@@ -10,8 +10,8 @@
 
     = simple_form_for @facade.gem_note, html: { class: 'form-gem form-inline' }, wraper_form: 'vertical_form' do |f|
       .row.main-values
-        .col-md-11.main-values-col
-          .row.col-md-14
+        .col-md-12.main-values-col
+          .row.col-md-12
             .row
               .col-md-8 =f.input :name, label: false, placeholder: t('gem.name'), class: :name
               .col-md-4 =f.input :version, label: false, placeholder: t('gem.version')
@@ -19,7 +19,13 @@
               .col-md-8 =f.input :description, label: false, placeholder: t('gem.description'), \
                 input_html: { class: 'description' }
               .col-md-2
-                =f.input :active, as: :boolean, input_html: {checked: true}, boolean_style: :inline
+                .row.active-form
+                  .col-md-6
+                    label.title active:
+                  .col-md-6
+                    label.toggle
+                      =f.check_box :active, {checked: true}, "true", "false"
+                      span.handle
               .col-md-2.more
                 a.more-btn.more-btn-expand@optionsExpand href="#"
                   button.btn.btn-default Options
@@ -27,33 +33,34 @@
                 a.more-btn.more-btn-collapse.hide@optionsCollapse href="#"
                   button.btn.btn-default Hide
                   /span.glyphicon.glyphicon-collapse-up
-          .row.option-values@optionValues
-            .row
-              .col-md-4
-                =f.input :require, label: false, placeholder: t('gem.require')
-              .col-md-4
-                =f.input :groups, label: false, placeholder: t('gem.groups')
-              .col-md-4
-                =f.input :platforms, label: false, placeholder: t('gem.platforms')
-            .row
-              .col-md-4
-                =f.input :source, label: false, placeholder: t('gem.source')
-              .col-md-4
-                =f.input :git, label: false, placeholder: t('gem.git')
-              .col-md-4
-                =f.input :github, label: false, placeholder: t('gem.github')
-            .row
-              .col-md-4
-                =f.input :path, label: false, placeholder: t('gem.path')
-              .col-md-4
-                =f.input :branch, label: false, placeholder: t('gem.branch')
-              .col-md-4
-                =f.input :tag, label: false, placeholder: t('gem.tag')
-            .row
-              .col-md-4
-                =f.input :ref, label: false, placeholder: t('gem.ref')
-              .col-md-4
-                =f.input :submodules, label: false, placeholder: t('gem.submodules')
+      .row.col-md-12
+        .row.option-values@optionValues
+          .row
+            .col-md-4
+              =f.input :require, label: false, placeholder: t('gem.require')
+            .col-md-4
+              =f.input :groups, label: false, placeholder: t('gem.groups')
+            .col-md-4
+              =f.input :platforms, label: false, placeholder: t('gem.platforms')
+          .row
+            .col-md-4
+              =f.input :source, label: false, placeholder: t('gem.source')
+            .col-md-4
+              =f.input :git, label: false, placeholder: t('gem.git')
+            .col-md-4
+              =f.input :github, label: false, placeholder: t('gem.github')
+          .row
+            .col-md-4
+              =f.input :path, label: false, placeholder: t('gem.path')
+            .col-md-4
+              =f.input :branch, label: false, placeholder: t('gem.branch')
+            .col-md-4
+              =f.input :tag, label: false, placeholder: t('gem.tag')
+          .row
+            .col-md-4
+              =f.input :ref, label: false, placeholder: t('gem.ref')
+            .col-md-4
+              =f.input :submodules, label: false, placeholder: t('gem.submodules')
 
         .col-md-1.submit-col@submitValues
           = submit_tag 'Add', class: 'btn btn-danger'
