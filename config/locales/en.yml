@@ -21,7 +21,7 @@ en:
   gem:
     name: "Name"
     version: "Version"
-    description: "Description"
+    description: "Description:"
     require: "Require"
     groups: "Groups"
     platforms: "Platforms"
@@ -34,3 +34,4 @@ en:
     ref: "Ref"
     submodules: "Submodules"
     original: "gem 'rails', '4.2.0'"
+    active: "active:"

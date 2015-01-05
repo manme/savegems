@@ -11,10 +11,10 @@
         .col-md-2
           .row.active-form
             .col-md-5
-              label.title active:
+              label.title = t('gem.active')
             .col-md-6
               label.toggle
-                =f.check_box :active, {checked: true}, "1", "0"
+                =f.check_box :active, {checked: true}, '1', '0'
                 span.handle
 
           .row.col-md-12.submit-btn@submitValues

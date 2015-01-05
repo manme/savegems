@@ -35,7 +35,7 @@ class GemNotesController < ApplicationController
 
   def show
     if params[:id].present?
-
+      @facade.show params[:id]
     else
 
     end

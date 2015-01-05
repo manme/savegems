@@ -1,13 +1,17 @@
 
 .row.col-md-12.gem-item@@gemItem
   .row.col-md-12.gem-item-link@linkGemField
-    = text_field_tag 'gem-item-link', gem_note.hashid, class: 'string form-control gem-field', placeholder: ""
+    = text_field_tag 'gem-item-link', gem_note_url(gem_note.hashid), class: 'string form-control gem-field'
   .gem-item-line
     .row.main-row@main
       .col-md-1
         a.status@expandGemIcon class="#{gem_active_class(gem_note)} icon-anim" href="#"
           span.glyphicon.glyphicon-eye-open
-        a.gem-edit.glyphicon.glyphicon-pencil.icon-anim@editGemIcon href=edit_gem_note_path(gem_note)
+        a.gem-edit.glyphicon.glyphicon-pencil.icon-anim@editGemIcon href="#"
+        a.gem-edit.glyphicon.glyphicon-floppy-disk.icon-anim.update-gem@updateGemIcon href=edit_gem_note_path(gem_note)
+        a.gem-edit.glyphicon.glyphicon-remove.icon-anim.cancel-gem@cancelGemIcon href="#"
+
+
       .col-md-8
         = text_field_tag :original, gem_note.original, class: 'mode-text param-name form-control', placeholder: t('gem.name'), disabled: 'disabled', data: { role: 'editGemFields' }
       .col-md-3.more
@@ -19,7 +23,12 @@
       .row
         .col-md-1.col-md-offset-0
         .col-md-8
-          = text_area_tag :description, gem_note.description, class: 'mode-text form-control', disabled: 'disabled', data: {role: 'editGemFields'}
-
+          = text_area_tag :description, gem_note.description, class: 'mode-text form-control', disabled: 'disabled', placeholder: t('gem.description'), data: {role: 'editGemFields'}
+        .col-md-1
+          /label.title = t('gem.active')
+        .col-md-2
+          label.toggle
+            =check_box_tag :active, '1', gem_note.actived?, disabled: true
+            span.handle
 
 
