@@ -23,6 +23,7 @@
 #
 
 class GemNote < ActiveRecord::Base
+  belongs_to :user
 
   validates :original, presence: true, allow_blank: false
 
@@ -30,6 +31,7 @@ class GemNote < ActiveRecord::Base
 
   def active=(val)
     if val.to_i.zero?
+
       self.state = :disactived
     else
       self.state = :actived

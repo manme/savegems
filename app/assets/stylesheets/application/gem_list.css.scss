@@ -70,6 +70,21 @@
       transition: width linear 0.25s;
     }
 
+    .edit-gem {
+      margin-right: 4px;
+      float: right;
+      height: 20px;
+      padding-top: 4px;
+    }
+
+    .update-edit-gem {
+      margin: 10px 0 0 46px;
+    }
+
+    .cancel-edit-gem {
+      padding-left: 15px;
+    }
+
     .gem-item-link {
       position: absolute;
       z-index:100;
@@ -107,8 +122,6 @@
       margin-top: 3px;
     }
 
-
-
     .row {
       .name {
         padding-left: 5px;
@@ -131,6 +144,7 @@
     display: inline-block;
     margin-right: 10px;
     text-align: center;
+    color: rgba(106, 70, 32, 0.50);
     span {
       line-height: 20px;
       padding: 0px 5px;
@@ -138,10 +152,6 @@
 
     &.actived {
       color: #04e30a;
-    }
-
-    &.disactived {
-      color: rgba(106, 70, 32, 0.50);
     }
   }
 

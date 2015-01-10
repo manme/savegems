@@ -1,6 +1,59 @@
 $ ->
   evil.block '@@gemItem',
 
+    editGemForm: ->
+      @editGemIcon.toggleClass('hide')
+      @updateEditGemIcon.toggleClass('hide')
+      @cancelEditGemIcon.toggleClass('hide')
+
+      @editGemFields.toggleClass('active')
+
+      if @editGemIcon.hasClass('hide')
+        $.each @editGemFields, (i,v)->
+          $(v).removeAttr('disabled')
+        @active.removeAttr('disabled')
+      else
+        $.each @editGemFields, (i,v)->
+          $(v).attr('disabled', 'disabled')
+        @active.attr('disabled', 'disabled')
+
+      if @editGemIcon.hasClass('hide') && !@expandGemInfo.hasClass('active')
+        @expandGemIcon.trigger('click')
+      if !@editGemIcon.hasClass('hide') && @expandGemInfo.hasClass('active')
+        @expandGemIcon.trigger('click')
+
+
+    copyOldValues: ->
+      $.each @editGemFields, (i,v)->
+        $(v).val($(v).attr('data-value'))
+      @active.prop('checked', @active.attr('data-value'))
+
+    updateNewValues: (cb)->
+      url = @updateEditGemIcon.attr('href')
+
+      $.ajax
+        url: url
+        type: 'PUT'
+        dataType: 'json'
+        data: @block.serialize()
+      .done (msg)=>
+        console.log msg
+        @description.val(msg.description)
+        @description.attr('data-value', msg.description)
+        @original.val(msg.original)
+        @original.attr('data-value', msg.original)
+        @active.prop('checked', msg.active)
+        @active.attr('data-value', msg.active)
+        if msg.active
+          @expandGemIcon.addClass('actived')
+        else
+          @expandGemIcon.removeClass('actived')
+
+      .fail ()=>
+        sweetAlert("Oops...", "Something went wrong!", "error");
+      .always =>
+        cb.call(this)
+
     init: ->
 
       @expandGemIcon.click (e) =>
@@ -21,10 +74,15 @@ $ ->
 
       @editGemIcon.click (e) =>
         e.preventDefault()
-        @editGemIcon.toggleClass('active')
-        @editGemFields.toggleClass('active')
 
-        if @editGemIcon.hasClass('active') && !@expandGemInfo.hasClass('active')
-          @expandGemIcon.trigger('click')
-        if !@editGemIcon.hasClass('active') && @expandGemInfo.hasClass('active')
-          @expandGemIcon.trigger('click')
+        @editGemForm()
+
+      @cancelEditGemIcon.click (e) =>
+        e.preventDefault()
+        @copyOldValues()
+        @editGemForm()
+
+      @updateEditGemIcon.click (e) =>
+        e.preventDefault()
+        @updateNewValues(@editGemForm)
+

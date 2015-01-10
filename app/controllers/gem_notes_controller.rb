@@ -10,7 +10,7 @@ class GemNotesController < ApplicationController
     if @facade.create(gem_note_params)
       respond_to do |format|
         format.html { redirect_to :gem_notes }
-        format.xml { render json: { status: :success, code: 200, id: @facade.gem_note.id} }
+        format.js { render json: { status: :success, code: 200, id: @facade.gem_note.id} }
       end
     else
       respond_to do |format|
@@ -18,7 +18,33 @@ class GemNotesController < ApplicationController
           @facade.all
           render :index
         end
-        format.xml { render json: { status: :error, code: 500 } }
+        format.js { render json: { status: :error, code: 500 } }
+      end
+    end
+  end
+
+  def update
+    if @facade.update(gem_note_params)
+      @facade.gem_note.reload
+      respond_to do |format|
+        format.html { redirect_to :gem_notes }
+        format.js do
+          render json: { status: :success,
+                         code: 200,
+                         id: @facade.gem_note.id,
+                         original: @facade.gem_note.original,
+                         description: @facade.gem_note.description,
+                         active: @facade.gem_note.actived?
+                 }
+        end
+      end
+    else
+      respond_to do |format|
+        format.html do
+          @facade.all
+          render :index
+        end
+        format.js { render json: { status: :error, code: 500 } }
       end
     end
   end
@@ -27,7 +53,7 @@ class GemNotesController < ApplicationController
     @gem_note.destroy
     respond_to do |format|
       format.html { redirect_to :gem_notes }
-      format.xml do
+      format.js do
         render json: { status: :success, code: 200, id: gem_note.id}
       end
     end
@@ -44,13 +70,13 @@ class GemNotesController < ApplicationController
   private
 
   def gem_note_params
-    params.require(:gem_note).permit(:original,
+    { active: '0' }.merge params.require(:gem_note).permit(:original,
       :description,
-      :active)
+      :active).merge(id: params[:id]).symbolize_keys
   end
 
   def gem_note_facade
-    @facade = GemNotesFacade.new
+    @facade = GemNotesFacade.new current_user
   end
 
   def set_gem_note

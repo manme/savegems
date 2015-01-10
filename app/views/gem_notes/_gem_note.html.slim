@@ -1,5 +1,4 @@
-
-.row.col-md-12.gem-item@@gemItem
+= simple_form_for gem_note, html: { class: 'row col-md-12 gem-item', data: { block: 'gemItem' } }, wraper_form: 'vertical_form' do |f|
   .row.col-md-12.gem-item-link@linkGemField
     = text_field_tag 'gem-item-link', gem_note_url(gem_note.hashid), class: 'string form-control gem-field'
   .gem-item-line
@@ -7,13 +6,11 @@
       .col-md-1
         a.status@expandGemIcon class="#{gem_active_class(gem_note)} icon-anim" href="#"
           span.glyphicon.glyphicon-eye-open
-        a.gem-edit.glyphicon.glyphicon-pencil.icon-anim@editGemIcon href="#"
-        a.gem-edit.glyphicon.glyphicon-floppy-disk.icon-anim.update-gem@updateGemIcon href=edit_gem_note_path(gem_note)
-        a.gem-edit.glyphicon.glyphicon-remove.icon-anim.cancel-gem@cancelGemIcon href="#"
-
+        a.gem-edit.glyphicon.glyphicon-pencil.icon-anim.edit-gem@editGemIcon href="#"
+        a.gem-edit.glyphicon.glyphicon-remove.icon-anim.cancel-edit-gem.hide@cancelEditGemIcon href="#"
 
       .col-md-8
-        = text_field_tag :original, gem_note.original, class: 'mode-text param-name form-control', placeholder: t('gem.name'), disabled: 'disabled', data: { role: 'editGemFields' }
+        = f.text_field :original, class: 'mode-text param-name form-control', placeholder: t('gem.name'), disabled: 'disabled',  data: { role: 'editGemFields original', value: gem_note.original }
       .col-md-3.more
         = link_to '', gem_note_path(gem_note), class: 'gem-destroy glyphicon glyphicon-trash icon-anim', method: :delete, data: {confirm: "Delete item?"}
 
@@ -22,13 +19,15 @@
     .details@expandGemInfo
       .row
         .col-md-1.col-md-offset-0
+          a.gem-edit.glyphicon.glyphicon-floppy-disk.icon-anim.update-edit-gem.hide@updateEditGemIcon href=gem_note_url(gem_note)
         .col-md-8
-          = text_area_tag :description, gem_note.description, class: 'mode-text form-control', disabled: 'disabled', placeholder: t('gem.description'), data: {role: 'editGemFields'}
+          = f.text_field :description, class: 'mode-text form-control', disabled: 'disabled', placeholder: t('gem.description'), data: {role: 'editGemFields description', value: gem_note.description }
         .col-md-1
           /label.title = t('gem.active')
         .col-md-2
           label.toggle
-            =check_box_tag :active, '1', gem_note.actived?, disabled: true
+            = f.check_box :active, { disabled: true, data: { role: 'active', value: gem_note.actived? }, checked: gem_note.actived? }, '1', '0'
+            /= check_box_tag :active, '1', gem_note.actived?, disabled: true, data: { role: 'active', value: gem_note.actived? }
             span.handle
 
 

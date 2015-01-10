@@ -1,5 +1,5 @@
 module GemNotesHelper
   def gem_active_class gemnote
-    gemnote.actived? ? "actived" : "disactived"
+    gemnote.actived? ? "actived" : ""
   end
 end
