@@ -20,16 +20,19 @@
 #  tag         :string(255)
 #  ref         :string(255)
 #  submodules  :string(255)
+#  hashid      :string(255)
+#  original    :string(255)
+#  user_id     :integer
 #
 
 class GemNote < ActiveRecord::Base
+  include Hashidable
+
   belongs_to :user
 
   acts_as_taggable
 
   validates :original, presence: true, allow_blank: false
-
-  after_create :set_hashid
 
   def active=(val)
     if val.to_i.zero?
@@ -48,11 +51,5 @@ class GemNote < ActiveRecord::Base
     event :active do
       transition disactived: :actived
     end
-  end
-
-  private
-
-  def set_hashid
-    update(hashid: Hashids.new(ENV['HASHID_SALT']).encode(id, 6))
   end
 end

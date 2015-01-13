@@ -20,6 +20,9 @@
 #  tag         :string(255)
 #  ref         :string(255)
 #  submodules  :string(255)
+#  hashid      :string(255)
+#  original    :string(255)
+#  user_id     :integer
 #
 
 require 'rails_helper'

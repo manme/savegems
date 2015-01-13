@@ -1,0 +1,13 @@
+#gemFileModal.modal.fade@@gemfileShow tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
+  .modal-dialog
+    .modal-content
+      .modal-header
+        button type="button" class="close" data-dismiss="modal" aria-label="Close"
+          span aria-hidden="true"&times;
+
+      .modal-body
+        .row.col-md-12
+          = text_area_tag :content, nil, rows: 17, class: 'form-control', data: { role: 'content' }
+
+      .modal-footer
+        button type="button" class="btn btn-default" data-dismiss="modal" Close
