@@ -1,4 +1,4 @@
-class GemfileController < ApplicationController
+class GemfilesController < ApplicationController
   def index
 
   end

@@ -3,15 +3,17 @@
     nav.navbar.navbar-custom role='navigation'
       .container-fluid
         .navbar-header
-          button.navbar-toggle type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-7"
-            /.sr-onlyToggle navigation
-            span.icon-bar
-            span.icon-bar
-            span.icon-bar
-          = link_to t('navbar.menu.home'), :root, class: 'navbar-brand'
-          = link_to t('navbar.menu.gem_notes'), :gem_notes, class: 'navbar-brand'
+          /button.navbar-toggle type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-7"
+          /  /.sr-onlyToggle navigation
+          /  span.icon-bar
+          /  span.icon-bar
+          /  span.icon-bar
+          - if signed_in?
+            = link_to t('navbar.menu.gem_notes'), :gem_notes, class: 'navbar-brand'
+            = link_to t('navbar.menu.gemfiles'), :gemfiles, class: 'navbar-brand'
+          = link_to t('navbar.menu.about'), '#', class: 'navbar-brand', data: { role: 'showAbout' }
 
-        .collapse.navbar-collapse#bs-example-navbar-collapse-7
-          p.navbar-text.navbar-right
-
-          = link_to t('navbar.logout'), :auth_logout, class: 'navbar-link'
+          /.collapse.navbar-collapse#bs-example-navbar-collapse-7
+          .navbar-right
+            p.navbar-text
+              = link_to t('navbar.logout'), :auth_logout, class: 'navbar-link'

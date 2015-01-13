@@ -3,6 +3,10 @@
   position: relative;
   z-index: 10;
 
+  .navbar-header {
+    width: 100%;
+  }
+
   .navbar-brand {
     color: rgba(255,255,255,0.9);
     line-height: 40px;
@@ -13,5 +17,13 @@
     }
 
     transition: color linear 0.15s;
+  }
+
+  .navbar-right {
+    float: right;
+  }
+
+  .navbar-link {
+    color: #FFFFFF;
   }
 }

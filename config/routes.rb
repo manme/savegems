@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'auth/logout' => 'sessions#destroy', as: :auth_logout
 
   resources :gem_notes, path: :gems
+  resources :gemfiles
 
   root 'home#index'
 

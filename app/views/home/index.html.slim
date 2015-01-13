@@ -1,11 +1,5 @@
 - content_for :navbar do
-  - if signed_in?
-    = render 'layouts/navbar'
+  = render 'layouts/navbar'
 
-.row
-  .col-md-8
-    == render 'share/auth'
-    == render 'share/about'
-
-  .col-md-4
-    == render 'share/feedback'
+  == render 'share/auth'
+  == render 'share/about'

@@ -11,7 +11,8 @@ en:
     logout: "Sign out"
     menu:
       gem_notes: "Gems"
-      home: "Home"
+      gemfiles: "Gemfiles"
+      about: "About"
 
   helpers:
     submit:
