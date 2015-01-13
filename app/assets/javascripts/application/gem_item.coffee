@@ -26,7 +26,11 @@ $ ->
     copyOldValues: ->
       $.each @editGemFields, (i,v)->
         $(v).val($(v).attr('data-value'))
-      @active.prop('checked', @active.attr('data-value'))
+
+      if @active.attr('data-value') == 'true'
+        @active.prop('checked', true)
+      else
+        @active.removeAttr('checked')
 
     updateNewValues: (cb)->
       url = @updateEditGemIcon.attr('href')

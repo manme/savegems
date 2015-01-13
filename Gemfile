@@ -17,6 +17,7 @@ gem 'figaro'
 gem 'puma'
 gem 'bcrypt'
 gem 'hashids'
+gem 'acts-as-taggable-on'
 
 #auth
 gem 'omniauth'
@@ -41,6 +42,8 @@ gem 'flutie'
 gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
+
+gem 'chosen-rails'
 
 gem 'rails-assets-normalize-css'
 gem 'rails-assets-bootstrap-sweetalert'

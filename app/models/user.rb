@@ -18,5 +18,7 @@
 class User < ActiveRecord::Base
   include Tokenable
 
+  acts_as_tagger
+
   has_many :gem_notes
 end

@@ -1,11 +1,10 @@
 class GemNotesFacade
-  attr_reader :gem_notes
-  attr_reader :gem_note
+  attr_reader :gem_notes, :gem_note, :tags
 
   def initialize user
     @user = user
-    pp @user
     @gem_note = user.gem_notes.build
+    @tags = user.owned_tags
   end
 
   def create params

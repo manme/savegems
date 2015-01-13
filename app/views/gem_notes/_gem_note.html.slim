@@ -15,7 +15,7 @@
         = link_to '', gem_note_path(gem_note), class: 'gem-destroy glyphicon glyphicon-trash icon-anim', method: :delete, data: {confirm: "Delete item?"}
 
         a.gem-link.glyphicon.glyphicon-link.icon-anim@linkGemIcon href="#"
-        = check_box_tag('gem_sected', gem_note.id, false, class: 'gem-select')
+        = check_box_tag('gem_sected', gem_note.id, false, class: 'gem-select', data: { role: 'select' })
     .details@expandGemInfo
       .row
         .col-md-1.col-md-offset-0

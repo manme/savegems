@@ -25,6 +25,8 @@
 class GemNote < ActiveRecord::Base
   belongs_to :user
 
+  acts_as_taggable
+
   validates :original, presence: true, allow_blank: false
 
   after_create :set_hashid

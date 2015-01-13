@@ -8,6 +8,9 @@
           .row
             .col-md-12 =f.input :description, label: false, placeholder: t('gem.description'), \
               input_html: { class: 'description form-control' }
+          /.row.col-md-12
+            = f.association :tags, collection: @facade.tags, include_blank: true, input_html: { class: 'chosen-select form-control', multiple: true, style: 'width:350px;', data: { role: 'tags' } }
+
         .col-md-2
           .row.active-form
             .col-md-5

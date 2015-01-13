@@ -223,6 +223,35 @@
   }
 }
 
+.gem-list-operations {
+  margin: 10px 0 0 0;
+
+  .compose {
+    text-align: center;
+    cursor: pointer;
+
+    pointer-events: none;
+    background: #d2d9e2;
+    opacity: 0.3;
+
+    &.active {
+      background: #fecdcf;
+      pointer-events: auto;
+      opacity: 1;
+    }
+
+    &:hover {
+      background: #d1e8fe;
+    }
+
+    transition: background linear 0.1s;
+  }
+
+  .col {
+    padding: 10px 15px;
+  }
+}
+
 .gem-list-header {
   margin: 10px 0 0 0;
 
