@@ -1,0 +1,15 @@
+- content_for :navbar do
+  = render 'layouts/navbar'
+
+= render 'layouts/error_messages', object: @facade.gemfile
+
+.gem-list-container@@gemfileList
+
+  - unless @facade.gemfiles.any?
+    .row.col-md-12
+      .row.col-md-12.gem-list-empty Gemfiles list empty
+
+  .row.col-md-12.gem-list
+    = render @facade.gemfiles
+  .row.col-md-12
+    hr

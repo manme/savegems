@@ -54,7 +54,7 @@ class GemNotesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to :gem_notes }
       format.js do
-        render json: { status: :success, code: 200, id: gem_note.id}
+        render json: { status: :success, code: 200, id: @gem_note.id}
       end
     end
   end
@@ -63,7 +63,7 @@ class GemNotesController < ApplicationController
     if params[:id].present?
       @facade.show params[:id]
     else
-
+      raise ActionController::RoutingError.new('Not Found')
     end
   end
 
