@@ -11,3 +11,36 @@
     height: 100px;
   }
 }
+
+.gemfile-container {
+
+  .gem-list-operations {
+    margin: 10px 0 0 0;
+
+    .add {
+      text-align: center;
+      cursor: pointer;
+      background: #d2d9e2;
+
+      &.active {
+        background: #fecdcf;
+        pointer-events: auto;
+        opacity: 1;
+      }
+
+      &:hover {
+        background: #d1e8fe;
+      }
+
+      transition: background linear 0.1s;
+    }
+
+    .col {
+      padding: 10px 15px;
+    }
+  }
+
+  .gem-item-line {
+    cursor: pointer;
+  }
+}

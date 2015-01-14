@@ -10,4 +10,12 @@
           = text_area_tag :content, nil, rows: 17, class: 'form-control', data: { role: 'content' }
 
       .modal-footer
-        button type="button" class="btn btn-default" data-dismiss="modal" Close
+        .row
+          .col-md-8
+            = text_field_tag :name, '', class: 'form-control', placeholder: t('gemfile.name')
+          .col-md-2
+            button type="button" class="btn btn-success" data-dismiss="modal" Save
+          .col-md-2
+            button type="button" class="btn btn-default" data-dismiss="modal" Close
+
+

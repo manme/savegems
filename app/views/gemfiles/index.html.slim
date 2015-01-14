@@ -3,9 +3,19 @@
 
 = render 'layouts/error_messages', object: @facade.gemfile
 
-.gem-list-container@@gemfileList
+.gem-list-container.gemfile-container@@gemfileList
 
-  - unless @facade.gemfiles.any?
+  .row.col-md-12.gem-list-operations
+    .row
+      .col-md-2.col.add.active@addGemfile
+        | Add Gemfile
+
+  - if @facade.gemfiles.any?
+    .row.col-md-12.gem-list-header
+      .row
+        .col-md-9.header-col Name
+        .col-md-3.header-col Operations
+  - else
     .row.col-md-12
       .row.col-md-12.gem-list-empty Gemfiles list empty
 

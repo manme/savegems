@@ -36,3 +36,5 @@ en:
     submodules: "Submodules"
     original: "gem 'rails', '4.2.0'"
     active: "active:"
+  gemfile:
+    name: "Name"

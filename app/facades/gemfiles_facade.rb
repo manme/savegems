@@ -21,6 +21,6 @@ class GemfilesFacade
   end
 
   def all
-    @gemfile = @user.gemfiles.all
+    @gemfiles = @user.gemfiles.all
   end
 end
