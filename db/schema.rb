@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 20150113115208) do
     t.text     "content"
     t.string   "name"
     t.string   "hashid"
-    t.integer  "users_id"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

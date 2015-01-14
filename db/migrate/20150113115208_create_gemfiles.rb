@@ -4,7 +4,7 @@ class CreateGemfiles < ActiveRecord::Migration
       t.text :content
       t.string :name
       t.string :hashid
-      t.references :users
+      t.references :user
 
       t.timestamps
     end

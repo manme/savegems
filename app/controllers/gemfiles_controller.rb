@@ -74,7 +74,7 @@ class GemfilesController < ApplicationController
   end
 
   def gemfile_facade
-    @facade = GemfileFacade.new current_user
+    @facade = GemfilesFacade.new current_user
   end
 
   def set_gemfile
