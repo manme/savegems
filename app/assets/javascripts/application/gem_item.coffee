@@ -58,35 +58,38 @@ $ ->
       .always =>
         cb.call(this)
 
-    init: ->
+    'click on @originField': (e)->
+      if $(e.currentTarget).hasClass('origin-field')
+        console.log $(e.currentTarget).attr('class')
+        @expandGemIcon.trigger('click')
 
-      @expandGemIcon.click (e) =>
-        e.preventDefault()
-        @expandGemIcon.toggleClass('active')
-        @expandGemInfo.toggleClass('active')
-        @block.toggleClass('active')
+    'click on @expandGemIcon': (e) ->
+      e.preventDefault()
+      @expandGemIcon.toggleClass('active')
+      @expandGemInfo.toggleClass('active')
+      @block.toggleClass('active')
 
-#      @exportGemIcon.click (e) =>
+#      'click on @exportGemIcon.click': (e) ->
 #        e.preventDefault()
 #        @exportGemIcon.toggleClass('active')
 #        @exportGemField.toggleClass('active')
 
-      @linkGemIcon.click (e) =>
-        e.preventDefault()
-        @linkGemIcon.toggleClass('active')
-        @linkGemField.toggleClass('active')
+    'click on @linkGemIcon': (e) ->
+      e.preventDefault()
+      @linkGemIcon.toggleClass('active')
+      @linkGemField.toggleClass('active')
 
-      @editGemIcon.click (e) =>
-        e.preventDefault()
+    'click on @editGemIcon': (e) ->
+      e.preventDefault()
+      @editGemForm()
 
-        @editGemForm()
+    'click on @cancelEditGemIcon': (e) ->
+      e.preventDefault()
+      @copyOldValues()
+      @editGemForm()
 
-      @cancelEditGemIcon.click (e) =>
-        e.preventDefault()
-        @copyOldValues()
-        @editGemForm()
+    'click on @updateEditGemIcon': (e) ->
+      e.preventDefault()
+      @updateNewValues(@editGemForm)
 
-      @updateEditGemIcon.click (e) =>
-        e.preventDefault()
-        @updateNewValues(@editGemForm)
 

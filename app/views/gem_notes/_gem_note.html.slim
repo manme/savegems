@@ -10,6 +10,7 @@
         a.gem-edit.glyphicon.glyphicon-remove.icon-anim.cancel-edit-gem.hide@cancelEditGemIcon href="#"
 
       .col-md-8
+        .origin-field@originField
         = f.text_field :original, class: 'mode-text param-name form-control', placeholder: t('gem.name'), disabled: 'disabled',  data: { role: 'editGemFields original', value: gem_note.original }
       .col-md-3.more
         = link_to '', gem_note_path(gem_note), class: 'gem-destroy glyphicon glyphicon-trash icon-anim', method: :delete, data: {confirm: "Delete item?"}
