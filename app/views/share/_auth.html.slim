@@ -1,8 +1,15 @@
-.panel.panel-primary
-  .panel-heading
-    h3.panel-title =t('home.panel_login.title')
-  .panel-body
-    - if signed_in?
-      = link_to t('home.gem_notes_link')
-    - else
-      = link_to t('home.github_auth'), 'auth/github'
+.row.col-md-12
+  hr
+  h5 Storing your gemfiles and names of gems with descriptions
+  ul
+    li Store names of the Gems, like "gem 'rails', '4.2.0'"
+    li Compose Gemfile by select several stored gems
+    li Store the best Gemfiles
+    li = link_to 'Free, Opensource', 'http://github.com/manme'
+  hr
+.row.col-md-12
+  .row.col-md-4
+  .row.col-md-4.signup
+    = link_to 'auth/github' do
+      h4 Try now, sign up via Github
+      = image_tag 'github.gif'
