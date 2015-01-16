@@ -9,7 +9,7 @@
   - if @facade.gem_notes.any?
     .row.col-md-12.gem-list-operations
       .row
-        .col-md-2.col.compose@composeGemfile
+        .col-md-2.col.compose@composeGemfile data-action=gemfiles_path data-method='POST'
           | Compose Gemfile
 
     .row.col-md-12.gem-list-header

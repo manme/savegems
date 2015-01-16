@@ -1,21 +1,22 @@
-#gemFileModal.modal.fade@@gemfileShow tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
-  .modal-dialog
-    .modal-content
-      .modal-header
-        button type="button" class="close" data-dismiss="modal" aria-label="Close"
-          span aria-hidden="true"&times;
+#gemFileModal.modal.fade@@gemfileShow tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-url="" data-action=""
+  = form_tag '', class: 'form-gem form-inline', data: { role: 'form' }, method: :patch
+    .modal-dialog
+      .modal-content
+        .modal-header
+          button type="button" class="close" data-dismiss="modal" aria-label="Close"
+            span aria-hidden="true"&times;
 
-      .modal-body
-        .row.col-md-12
-          = text_area_tag :content, nil, rows: 17, class: 'form-control', data: { role: 'content' }
+        .modal-body
+          .row.col-md-12
+            = text_area_tag :content, nil, rows: 17, class: 'form-control', data: { role: 'content' }
 
-      .modal-footer
-        .row
-          .col-md-8
-            = text_field_tag :name, '', class: 'form-control', placeholder: t('gemfile.name')
-          .col-md-2
-            button type="button" class="btn btn-success" data-dismiss="modal" Save
-          .col-md-2
-            button type="button" class="btn btn-default" data-dismiss="modal" Close
+        .modal-footer
+          .row
+            .col-md-8
+              = text_field_tag :name, '', class: 'form-control', data: { role: 'name' }, placeholder: t('gemfile.name')
+            .col-md-2
+              = submit_tag 'Save' , data: { role: 'save' }, class: "btn btn-success save"
+            .col-md-2
+              button type="button" class="btn btn-default" data-dismiss="modal" Close
 
 

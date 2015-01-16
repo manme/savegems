@@ -68,9 +68,8 @@ class GemfilesController < ApplicationController
 
   private
 
-
   def gemfile_params
-    params.require(:gemfile).permit(:name, :content).merge(id: params[:id])#.symbolize_keys
+    params.permit(:name, :content, :id)
   end
 
   def gemfile_facade

@@ -3,11 +3,11 @@
 
 = render 'layouts/error_messages', object: @facade.gemfile
 
-.gem-list-container.gemfile-container@@gemfileList
+.gemfile-container@@gemfileList
 
   .row.col-md-12.gem-list-operations
     .row
-      .col-md-2.col.add.active@addGemfile
+      .col-md-2.col.add.active@addGemfile data-action=gemfiles_path data-method='POST'
         | Add Gemfile
 
   - if @facade.gemfiles.any?
@@ -19,7 +19,7 @@
     .row.col-md-12
       .row.col-md-12.gem-list-empty Gemfiles list empty
 
-  .row.col-md-12.gem-list
+  .row.col-md-12.gemfile-list
     = render @facade.gemfiles
   .row.col-md-12
     hr

@@ -1,17 +1,3 @@
-#gemFileModal {
-  .modal-header {
-    height: 50px;
-  }
-
-  .modal-body {
-    height: 400px;
-  }
-
-  .modal-footer {
-    height: 100px;
-  }
-}
-
 .gemfile-container {
 
   .gem-list-operations {
@@ -40,7 +26,131 @@
     }
   }
 
-  .gem-item-line {
-    cursor: pointer;
+  .gem-list-header {
+    margin: 10px 0 0 0;
+
+    .row {
+      .header-col {
+        padding: 10px 15px;
+
+        &:nth-child(even) {
+          background: #d1e8fe;
+        }
+        &:nth-child(odd) {
+          background: #C1DDF7
+        }
+      }
+    }
+  }
+
+  .gem-list-empty {
+    text-align: center;
+    padding: 20px;
+    font-weight: bold;
+  }
+
+  .gemfile-list {
+
+    .gem-operation {
+
+    }
+
+    .gemfile-item {
+
+      min-height: 40px;
+
+
+      &:nth-child(even)
+      {
+        background: #f8f8f8;
+      }
+
+      &:nth-child(odd)
+      {
+        background: #ffffff;
+      }
+
+      &:hover, &.active {
+        background: #e8f8ff;
+      }
+
+      transition: background linear 0.1s;
+
+      .select-gemfile, .operations {
+        padding: 8px 15px;
+        cursor: pointer;
+      }
+
+      .select-gemfile div {
+        pointer-events: none;
+      }
+
+
+      .mode-text {
+        background: none;
+        outline: none;
+        border: none;
+        cursor: text;
+        vertical-align: top;
+        height: 22px;
+        padding: 0 5px;
+        width: 100%;
+        box-shadow: none;
+
+        &.active {
+          background: #ffffff;
+          outline-color: #15B0DA;
+          border: 1px solid #000000;
+        }
+      }
+
+      .param-name {
+        width: 260px;
+      }
+
+      .gem-item-link {
+        position: absolute;
+        z-index:100;
+        right: 50px;
+        width: 0px;
+        padding: 0;
+        opacity: 0;
+
+        .gem-field {
+          padding: 0 0;
+          transition: padding linear 0.25s;
+          height: 25px;
+        }
+
+        &.active {
+          width: 250px;
+          opacity: 1;
+          .gem-field {
+            padding: 0 10px;
+          }
+        }
+
+        transition: opacity linear 0.25s;
+        transition: width linear 0.25s;
+      }
+
+      .row {
+        .name {
+          padding-left: 5px;
+        }
+        .more {
+          user-select: none;
+        }
+      }
+
+    }
+
+    a.gem-destroy {
+    }
+
+    a.gem-link {
+      position: absolute;
+      right: 30px;
+    }
   }
 }

@@ -1,9 +1,10 @@
-.gem-item-line
-  .row.main-row@main
-    .col-md-9
-      .param-name@name data-value=gemfile.name
-    .col-md-3
-      = link_to '', gemfile_path(gemfile), class: 'gem-destroy glyphicon glyphicon-trash icon-anim', method: :delete, data: {confirm: "Delete item?"}
+.gemfile-item@gemfile data-action=gemfile_path(gemfile) data-method='patch'
+  .row.main-row
+    .col-md-9.select-gemfile@select
+      .param-name@name data-value=gemfile.name = gemfile.name
+      .param-content@content style='display:none;' = gemfile.content
+    .col-md-3.operations
+      = link_to '', gemfile_path(gemfile), class: 'gem-destroy glyphicon glyphicon-trash icon-anim', method: :delete, data: { confirm: "Delete item?" }
 
       /a.gem-link.glyphicon.glyphicon-link.icon-anim@linkGemfileIcon href="#"
 

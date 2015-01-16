@@ -1,0 +1,55 @@
+.hide {
+  display: none;
+}
+
+.icon-anim {
+  color: #676a6c;
+  &:hover {
+    color: #2d2e2f !important;
+  }
+
+  &:focus {
+    color: #676a6c;
+  }
+
+  &:active {
+    color: #e00000 !important;
+    transition: color linear 0.05s;
+  }
+
+  &.active {
+    color: #e00000 !important;
+    transition: color linear 0.05s;
+  }
+
+  transition: color linear 0.15s;
+  user-focus: none;
+}
+
+.btn-default {
+  &:hover {
+    background: #f6f6f6;
+    color: #000000;
+  }
+
+}
+
+.error-message {
+  .alert-danger {
+    background: inline('form_bg.png');
+    padding: 10px;
+    margin-bottom: 20px;
+
+    .text-box {
+      background: #ffffff;
+      color: #E70000;
+      font-weight: bold;
+      padding: 10px;
+
+      ul {
+        margin-bottom: 0px;
+      }
+    }
+  }
+
+}

@@ -1,27 +1,25 @@
 $ ->
-  evil.block '@@addGem',
+  evil.block '@@gemList',
 
-#    showOptions: (show) ->
-#      if show
-#        @optionValues.addClass('show')
-#      else
-#        @optionValues.removeClass('show')
+    'click on @composeGemfile': (e)->
+      gemItems = @select.filter(':checked').parents('@@gemItem').toArray().slice(0).reverse()
+      content = ''
+
+      for i, gemItem of gemItems
+        content += $(gemItem).find('@original').val() + '\n'
+
+      $('@@gemfileShow').find('@form').attr 'action', @composeGemfile.attr('data-action')
+      $('@@gemfileShow').find('*[name="_method"]').attr 'value', @composeGemfile.attr('data-method')
+      $('@@gemfileShow').find('@content').val(content)
+      $('@@gemfileShow').find('@name').val('')
+
+
+      $('@@gemfileShow').find('@save').removeClass('active')
+      $('@@gemfileShow').modal('show')
 
     init: ->
-
-#      @tags.chosen
-#        allow_single_deselect: true
-#        no_results_text: 'No results matched'
-#        width: '200px'
-
-#      @optionsExpand.click (e) =>
-#        e.preventDefault()
-#        @optionsExpand.addClass('hide')
-#        @optionsCollapse.removeClass('hide')
-#        @showOptions(true)
-#
-#      @optionsCollapse.click (e) =>
-#        e.preventDefault()
-#        @optionsExpand.removeClass('hide')
-#        @optionsCollapse.addClass('hide')
-#        @showOptions(false)
+      @select.click (e)=>
+        if @select.filter(':checked').size() > 0
+          @composeGemfile.addClass('active')
+        else
+          @composeGemfile.removeClass('active')
